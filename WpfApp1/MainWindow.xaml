@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="FirstApp" Height="180" Width="260"
         WindowStyle="SingleBorderWindow"
-        Background="#292D2B" Icon="/ICON.png"
+        Background="#292D2B" Icon="/res/ICON.png"
        >
     <Grid Margin="10">
         <Grid.RowDefinitions>
