@@ -29,15 +29,6 @@ namespace WpfApp1.DATABASE
         {
         }
 
-        public ImDB(string serv, int port, string db, string id, string pwd)
-        {
-            this.SERVER = serv;
-            this.PORT = port;
-            this.DATABASE = db;
-            this.DB_ID = id;
-            this.DB_PWD = pwd;
-        }
-
         public bool DBConnection()
         {
             this.connAddr = $"Server={this.SERVER};Port={this.PORT};Database={this.DATABASE};Uid={this.DB_ID};Pwd={this.DB_PWD}" ;
@@ -54,6 +45,16 @@ namespace WpfApp1.DATABASE
                 Console.WriteLine("Fail DB Connection");
 
             return this.DB_CONN;
+        }
+        public bool DBConnection(string serv, int port, string db, string id, string pwd)
+        {
+            this.SERVER = serv;
+            this.PORT = port;
+            this.DATABASE = db;
+            this.DB_ID = id;
+            this.DB_PWD = pwd;
+
+            return DBConnection();
         }
 
         public bool SelectData(string sel, string tb, string wh)
@@ -77,7 +78,7 @@ namespace WpfApp1.DATABASE
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine(Convert.ToString(ex));
+                Console.Error.WriteLine(Convert.ToString(ex.StackTrace));
                 conn.Close();
             }
             return false;
