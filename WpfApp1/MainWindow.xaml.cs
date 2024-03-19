@@ -27,7 +27,7 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void BtnTestDB_Click(object sender, RoutedEventArgs e)
+        private void BtnLoadKorCity_Click(object sender, RoutedEventArgs e)
         {
             SelectDB.City_KOR();
             int tot = DB_DATA_List.arrTable_City.Count;
@@ -36,6 +36,11 @@ namespace WpfApp1
                 string nn = DB_DATA_List.arrTable_City[i].Name;
                 lstNames.Items.Add(nn);
             }
+        }
+
+        private void BtnDelKorCity_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -22,7 +22,8 @@
         <ListBox x:Name="lstNames" />
 
         <StackPanel Grid.Column="1" Margin="5,0,0,0">
-            <Button x:Name="btnTest" Margin="0 0 0 0" Click="BtnTestDB_Click">Read KOR City</Button>
+            <Button x:Name="btnLoadKorCity" Margin="0 0 0 0" Click="BtnLoadKorCity_Click">Load KOR City</Button>
+            <Button x:Name="btnDelKorCity" Margin="0 5 0 0" Click="BtnDelKorCity_Click">Delete KOR City</Button>
         </StackPanel>
     </Grid>
 </Window>
