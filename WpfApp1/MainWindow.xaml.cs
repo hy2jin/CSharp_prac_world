@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static WpfApp1.GlobalVariables;
+using WpfApp1.DATABASE;
 
 namespace WpfApp1
 {
@@ -29,11 +29,12 @@ namespace WpfApp1
 
         private void BtnTestDB_Click(object sender, RoutedEventArgs e)
         {
-            bool bRead = g_DB.SelectData("ID, Name, CountryCode, District, Population", "city", "CountryCode = 'KOR'");
-            foreach (DataRow dr in g_DB.ds.Tables[0].Rows)
+            SelectDB.City_KOR();
+            int tot = DB_DATA_List.arrTable_City.Count;
+            for (int i = 0; i < tot; i++)
             {
-                int iCol = 0;
-                lstNames.Items.Add($"{dr[iCol++]}_{dr[iCol++]}_{dr[iCol++]}_{dr[iCol++]}_{dr[iCol++]}");
+                string nn = DB_DATA_List.arrTable_City[i].Name;
+                lstNames.Items.Add(nn);
             }
         }
     }

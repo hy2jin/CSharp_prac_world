@@ -115,6 +115,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DATABASE\DB_STRUCT.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="DATABASE\ImDB.cs" />
     <Compile Include="MainWindow.xaml.cs">
