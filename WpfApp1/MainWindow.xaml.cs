@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.DATABASE;
 
 namespace WpfApp1
 {
@@ -32,6 +33,11 @@ namespace WpfApp1
                 lstNames.Items.Add(txtName.Text);
                 txtName.Clear();
             }
+        }
+        private void BtnTestDB_Click(object sender, RoutedEventArgs e)
+        {
+            //g_DB.SelectData("columnName", "tableName");
+            //g_DB.strSelectData("SELECT * FROM city;");
         }
     }
 }
