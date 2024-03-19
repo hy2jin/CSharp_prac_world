@@ -5,29 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="FirstApp" Height="180" Width="260"
+        Title="FirstApp" Height="180" Width="900"
         WindowStyle="SingleBorderWindow"
         Background="#292D2B" Icon="/res/ICON.png"
        >
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="17*" />
-            <ColumnDefinition Width="103*"/>
-            <ColumnDefinition Width="120*" />
+            <ColumnDefinition Width="750" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,118" Grid.RowSpan="2">Names</Label>
-        <ListBox Grid.Row="1" x:Name="lstNames" Grid.ColumnSpan="2" />
+        <ListBox x:Name="lstNames" />
 
-        <StackPanel Grid.Row="1" Grid.Column="2" Margin="5,0,0,0">
-            <TextBox x:Name="txtName" />
-            <Button x:Name="btnAdd" Margin="0 5 0 0" Click="BtnAddName_Click">Add Name</Button>
-            <Button x:Name="btnTest" Margin="0 5 0 0" Click="BtnTestDB_Click">Test DB</Button>
+        <StackPanel Grid.Column="1" Margin="5,0,0,0">
+            <Button x:Name="btnTest" Margin="0 0 0 0" Click="BtnTestDB_Click">Test DB</Button>
         </StackPanel>
     </Grid>
 </Window>
