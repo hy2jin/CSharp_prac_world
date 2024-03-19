@@ -29,15 +29,12 @@ namespace WpfApp1
 
         private void BtnTestDB_Click(object sender, RoutedEventArgs e)
         {
-            bool bRead = g_DB.SelectData("ID, Name, CountryCode, District, Population", "city");
+            bool bRead = g_DB.SelectData("ID, Name, CountryCode, District, Population", "city", "CountryCode = 'KOR'");
             foreach (DataRow dr in g_DB.ds.Tables[0].Rows)
             {
                 int iCol = 0;
                 lstNames.Items.Add($"{dr[iCol++]}_{dr[iCol++]}_{dr[iCol++]}_{dr[iCol++]}_{dr[iCol++]}");
             }
-
-            int abc = 123;
-            //g_DB.strSelectData("SELECT * FROM city;");
         }
     }
 }
