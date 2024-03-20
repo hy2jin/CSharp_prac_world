@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Database Test" Height="132" Width="320"
+        Title="Database Test" Height="155" Width="320"
         WindowStyle="SingleBorderWindow"
         Background="#292D2B" Icon="/res/database.png"
        >
