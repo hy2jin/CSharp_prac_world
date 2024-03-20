@@ -35,6 +35,7 @@ namespace WpfApp1.DATABASE
     public static class DB_DATA_List
     {
         public static List<DB_TABLE_City> arrTable_City = new List<DB_TABLE_City>();
+        public static List<DB_TABLE_City> arrInsert_City = new List<DB_TABLE_City>();
     }
     
     public static class SelectDB

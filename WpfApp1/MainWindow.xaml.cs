@@ -66,6 +66,14 @@ namespace WpfApp1
                 if (bDel)
                 {
                     lstNames.Items.Remove(lstNames.SelectedItem);
+
+                    int tot = DB_DATA_List.arrTable_City.Count;
+                    for (int i = 0; i < tot; i++)
+                    {
+                        if (DB_DATA_List.arrTable_City[i].Name != selectedVal) continue;
+                        DB_DATA_List.arrInsert_City.Add(DB_DATA_List.arrTable_City[i]);
+                        break;
+                    }
                 }
             }
             else
