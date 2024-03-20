@@ -49,7 +49,7 @@ namespace WpfApp1
             }
             else
             {
-                MessageBox.Show("지울 값을 선택해주세요.", "안내");
+                MessageBox.Show("수정할 도시를 선택해주세요.", "안내");
             }
         }
         
@@ -62,7 +62,7 @@ namespace WpfApp1
             }
             else
             {
-                MessageBox.Show("지울 값을 선택해주세요.", "안내");
+                MessageBox.Show("삭제할 도시를 선택해주세요.", "안내");
             }
         }
     }
