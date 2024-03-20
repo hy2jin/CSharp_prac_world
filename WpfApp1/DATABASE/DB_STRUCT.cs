@@ -56,7 +56,15 @@ namespace WpfApp1.DATABASE
 
                 DB_DATA_List.arrTable_City.Add(TempCity);
             }
-            g_DB.ds = null;
+        }
+    }
+
+    public static class UpdateDB
+    {
+        public static void City_KOR(string val)
+        {
+            string whereMsg = $"Name = '{val}'";
+            bool bUpdate = g_DB.UpdateData("city", "Population = 12", whereMsg);
         }
     }
 }

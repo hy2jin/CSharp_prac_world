@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,21 +70,55 @@ namespace WpfApp1.DATABASE
         }
         public bool SelectData(string query)
         {
+            bool bResult = false;
             if (!DBConnection())
-                return false;
+                return bResult;
             try
             {
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 adapter.Fill(ds);
                 if (ds.Tables.Count > 0)
-                    return true;
+                    bResult = true;
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine("예외 - " + Convert.ToString(ex));
-                conn.Close();
+                Console.Error.WriteLine("SelectData 오류 : " + ex.Message);
             }
-            return false;
+            conn.Close();
+            return bResult;
+        }
+
+        public bool UpdateData(string tb, string setVal, string wh)
+        {
+            string sqlQuery = $"UPDATE {tb} SET {setVal} WHERE {wh};";
+            return UpdateData(sqlQuery);
+        }
+        public bool UpdateData(string tb, string setVal)
+        {
+            string sqlQuery = $"UPDATE {tb} SET {setVal};";
+            return UpdateData(sqlQuery);
+        }
+        public bool UpdateData(string query)
+        {
+            bool bResult = false;
+            if (!DBConnection())
+                return bResult;
+
+            try
+            {
+                conn = new MySqlConnection(this.connAddr);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                int rwos = cmd.ExecuteNonQuery();
+                bResult = true;
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("UpdateData 오류 : " + ex.Message);
+            }
+
+            conn.Close();
+            return bResult;
         }
     }
 }

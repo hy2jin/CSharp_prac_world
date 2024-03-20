@@ -27,7 +27,7 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void BtnLoadKorCity_Click(object sender, RoutedEventArgs e)
+        private void BtnLoadKorCity_Click(object sender, RoutedEventArgs e)//SELECT
         {
             SelectDB.City_KOR();
             int tot = DB_DATA_List.arrTable_City.Count;
@@ -38,12 +38,22 @@ namespace WpfApp1
             }
         }
 
-        private void BtnUpdateKorCity_Click(object sender, RoutedEventArgs e)
+        private void BtnUpdateKorCity_Click(object sender, RoutedEventArgs e)//UPDATE
         {
+            if (lstNames.SelectedItem != null)
+            {
+                string selectedVal = lstNames.SelectedItem.ToString();
+                Console.WriteLine(selectedVal);
 
+                UpdateDB.City_KOR(selectedVal);
+            }
+            else
+            {
+                MessageBox.Show("지울 값을 선택해주세요.", "안내");
+            }
         }
         
-        private void BtnDelKorCity_Click(object sender, RoutedEventArgs e)
+        private void BtnDelKorCity_Click(object sender, RoutedEventArgs e)//DELETE
         {
             if (lstNames.SelectedItem != null)
             {
