@@ -29,6 +29,8 @@ namespace WpfApp1
 
         private void BtnLoadKorCity_Click(object sender, RoutedEventArgs e)//SELECT
         {
+            lstNames.Items.Clear();
+
             SelectDB.City_KOR();
             int tot = DB_DATA_List.arrTable_City.Count;
             for (int i = 0; i < tot; i++)
@@ -59,11 +61,22 @@ namespace WpfApp1
             {
                 string selectedVal = lstNames.SelectedItem.ToString();
                 Console.WriteLine(selectedVal);
+
+                bool bDel = DeleteDB.City_KOR(selectedVal);
+                if (bDel)
+                {
+                    lstNames.Items.Remove(lstNames.SelectedItem);
+                }
             }
             else
             {
                 MessageBox.Show("삭제할 도시를 선택해주세요.", "안내");
             }
+        }
+
+        private void BtnInsertKorCity_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

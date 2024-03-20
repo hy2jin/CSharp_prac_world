@@ -42,6 +42,8 @@ namespace WpfApp1.DATABASE
         public static void City_KOR()
         {
             bool bRead = g_DB.SelectData("ID, Name, CountryCode, District, Population", "city", "CountryCode = 'KOR'");
+            DB_DATA_List.arrTable_City.Clear();
+
             foreach (DataRow dr in g_DB.ds.Tables[0].Rows)
             {
                 DB_TABLE_City TempCity = new DB_TABLE_City();
@@ -65,6 +67,16 @@ namespace WpfApp1.DATABASE
         {
             string whereMsg = $"Name = '{val}'";
             bool bUpdate = g_DB.UpdateData("city", "Population = 12", whereMsg);
+        }
+    }
+
+    public static class DeleteDB
+    {
+        public static bool City_KOR(string val)
+        {
+            string whereMsg = $"Name = '{val}'";
+            bool bDelete = g_DB.DeleteData("city", whereMsg);
+            return bDelete;
         }
     }
 }

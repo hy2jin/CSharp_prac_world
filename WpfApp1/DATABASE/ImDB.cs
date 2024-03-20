@@ -76,6 +76,7 @@ namespace WpfApp1.DATABASE
             try
             {
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                ds.Clear();
                 adapter.Fill(ds);
                 if (ds.Tables.Count > 0)
                     bResult = true;
@@ -115,6 +116,34 @@ namespace WpfApp1.DATABASE
             catch (Exception ex)
             {
                 Console.Error.WriteLine("UpdateData 오류 : " + ex.Message);
+            }
+
+            conn.Close();
+            return bResult;
+        }
+
+        public bool DeleteData(string tb, string wh)
+        {
+            string sqlQuery = $"DELETE FROM {tb} WHERE {wh};";
+            return DeleteData(sqlQuery);
+        }
+        public bool DeleteData(string query)
+        {
+            bool bResult = false;
+            if (!DBConnection())
+                return bResult;
+
+            try
+            {
+                conn = new MySqlConnection(this.connAddr);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query , conn);
+                int rwos = cmd.ExecuteNonQuery();
+                bResult = true;
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("DeleteData 오류 : " + ex.Message);
             }
 
             conn.Close();
