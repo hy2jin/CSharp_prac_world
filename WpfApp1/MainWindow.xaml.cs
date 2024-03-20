@@ -38,9 +38,22 @@ namespace WpfApp1
             }
         }
 
-        private void BtnDelKorCity_Click(object sender, RoutedEventArgs e)
+        private void BtnUpdateKorCity_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        
+        private void BtnDelKorCity_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstNames.SelectedItem != null)
+            {
+                string selectedVal = lstNames.SelectedItem.ToString();
+                Console.WriteLine(selectedVal);
+            }
+            else
+            {
+                MessageBox.Show("지울 값을 선택해주세요.", "안내");
+            }
         }
     }
 }

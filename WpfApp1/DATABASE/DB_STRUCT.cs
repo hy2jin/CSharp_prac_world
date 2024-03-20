@@ -56,6 +56,7 @@ namespace WpfApp1.DATABASE
 
                 DB_DATA_List.arrTable_City.Add(TempCity);
             }
+            g_DB.ds = null;
         }
     }
 }

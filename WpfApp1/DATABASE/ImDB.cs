@@ -69,6 +69,8 @@ namespace WpfApp1.DATABASE
         }
         public bool SelectData(string query)
         {
+            if (!DBConnection())
+                return false;
             try
             {
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
@@ -78,7 +80,7 @@ namespace WpfApp1.DATABASE
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine(Convert.ToString(ex.StackTrace));
+                Console.Error.WriteLine("예외 - " + Convert.ToString(ex));
                 conn.Close();
             }
             return false;

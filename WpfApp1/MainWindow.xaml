@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="FirstApp" Height="180" Width="900"
+        Title="Database Test" Height="180" Width="320"
         WindowStyle="SingleBorderWindow"
-        Background="#292D2B" Icon="/res/ICON.png"
+        Background="#292D2B" Icon="/res/database.png"
        >
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -15,14 +15,15 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="750" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="120" />
         </Grid.ColumnDefinitions>
 
         <ListBox x:Name="lstNames" />
 
         <StackPanel Grid.Column="1" Margin="5,0,0,0">
             <Button x:Name="btnLoadKorCity" Margin="0 0 0 0" Click="BtnLoadKorCity_Click">Load KOR City</Button>
+            <Button x:Name="btnUpdateKorCity" Margin="0 5 0 0" Click="BtnUpdateKorCity_Click">Update KOR City</Button>
             <Button x:Name="btnDelKorCity" Margin="0 5 0 0" Click="BtnDelKorCity_Click">Delete KOR City</Button>
         </StackPanel>
     </Grid>
