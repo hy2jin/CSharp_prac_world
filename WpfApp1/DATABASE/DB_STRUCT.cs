@@ -89,6 +89,7 @@ namespace WpfApp1.DATABASE
 
                 DB_DATA_List.arrTable_CountryCode.Add(TempData);
             }
+        }
     }
 
     public static class UpdateDB

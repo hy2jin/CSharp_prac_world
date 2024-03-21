@@ -26,10 +26,6 @@ namespace WpfApp1.DATABASE
 
         public MySqlConnection conn { get; private set; } // MySqlConnection 인스턴스를 외부에서 접근할 수 있도록 함
 
-        public ImDB()
-        {
-        }
-
         public bool DBConnection()
         {
             this.connAddr = $"Server={this.SERVER};Port={this.PORT};Database={this.DATABASE};Uid={this.DB_ID};Pwd={this.DB_PWD}" ;
